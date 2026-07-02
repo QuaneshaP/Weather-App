@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+   font-family: "Exo", sans-serif;
+}
+.header{
+    text-align: center;
+}
+.bodys{
+    display: flex;
+    justify-content: center;
+    padding-top: 1.5rem;
+}
+.weather-card{
+    width: 500px;
+    height: 500px;
+    box-shadow: 10px 5px 5px rgba(87, 80, 80, 0.466);
+    border-radius: 9px;
+    border: solid 1px;
+    border-color: rgba(15, 19, 15, 0.74)
+}
