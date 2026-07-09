@@ -12,8 +12,9 @@ async function getWeather(){// Overall function to return weather data to the us
         throw new Error(`Request Failed ${data.status}`);
       }
       const data = await response.json();
-
-      Bodyy.innerHTML = "";
+     
+      
+      Bodyy.innerHTML = ""; // Clear the contents of the weather card.
 
       const weatherCard = document.createElement("div");                                                                                                                                                                                                                                                                                               
       weatherCard.classList.add("weather-card");
@@ -25,7 +26,13 @@ async function getWeather(){// Overall function to return weather data to the us
 
       // Goes in top half of weather card.
       const headline = document.createElement("h1");
-      headline.textContent = locations.value;
+      const headlineStg = locations.value;
+      const words = headlineStg.split(" ");
+       
+      let headlineCap = words.map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      
+      
+      headline.textContent = headlineCap.join(" ");
       topHalfCard.appendChild(headline);
       topHalfCard.classList.add("top-half");
       botHalfCard.classList.add("bot-half");
@@ -56,17 +63,43 @@ async function getWeather(){// Overall function to return weather data to the us
       // Temperature side or weather card.
       const tempDiv = document.createElement("div");
       const tempHeadline = document.createElement("h1");
-      const temp = document.createElement("h1");
-
+      const temp = document.createElement("button");
+      const degreeChanger = document.createElement("p");
+      // Function to convert the temp to celsius and fahrenheit.
+      
       tempHeadline.textContent = "Temp";
-      temp.textContent = selected.Temperature;
+      temp.textContent = `${Math.round(selected.Temperature)} F\u00B0`;
+      
+
+      //Funtion to convert celsius to fahrenheit and vice versa.
+      let isFahrenheit = true; // Flag for the tempCoversion function
+      function tempConversion(a){
+        
+        if (isFahrenheit){
+          temp.textContent = Math.round((a - 32) * 5/9) + "C\u00B0";
+          isFahrenheit = false;
+        }
+        else{
+          temp.textContent = Math.round(selected.Temperature) + "F\u00B0";
+          isFahrenheit = true;
+        }
+
+      }
+      temp.addEventListener("click", function(){
+        tempConversion(selected.Temperature);
+
+        
+      });
 
       tempDiv.appendChild(tempHeadline);
       tempDiv.appendChild(temp);
+      tempDiv.appendChild(degreeChanger);
+      
+
       tempDiv.classList.add("temp-div");
 
       const descr = document.createElement("p");
-      descr.textContent = selected.Description;
+      descr.textContent = selected.Conditions;
 
       // Wind side of weather card.
       const windDiv = document.createElement("div");

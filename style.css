@@ -5,11 +5,18 @@
    padding: 0;
    box-sizing: border-box;
    
+   
+}
+body{
+    background-color: rgb(219, 212, 212);
 }
 .header{
     text-align: center;
-    padding-bottom: 1.5rem;
+    padding-bottom: 2rem;
     padding-top: 1.5rem;
+}
+.header :first-child{
+    padding-bottom: 1.25rem;
 }
 .bodys{
     display: flex;
@@ -17,21 +24,24 @@
     padding-top: 1.5rem;
 }
 .weather-card{
-    color:blueviolet;
+    color:rgb(27, 6, 48);
     width: 500px;
     height: 500px;
     box-shadow: 10px 5px 5px rgba(87, 80, 80, 0.466);
     border-radius: 9px;
-    border: solid 1px;
-    border-color: rgba(15, 19, 15, 0.74)
+    border: solid 3px;
+    border-color: rgba(15, 19, 15, 0.74);
+    background-color: white;
+    
 }
 .top-half{
     padding-top: 2.0rem;
     text-align: center;
     height: 50%;
+    
 }
 .top-half img{
-    height: 55%
+    height: 65%
 }
 .bot-half{
     display: grid;
@@ -39,6 +49,7 @@
     padding: 1.5rem;
     color: black;
     gap: 7.0rem;
+    
 
 }
 .temp-div{
@@ -64,5 +75,11 @@
 }
 .windspeed-div{
     display: flex;
+}
+.top-half :first-child{
+    font-size: 2.75rem;
+}
+.top-half :nth-child(2){
+    font-size: 1.5rem;
 }
 
